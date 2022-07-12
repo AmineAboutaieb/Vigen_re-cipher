@@ -8,6 +8,9 @@ message = "The river of sbou is passing and berries are growing on the floor"
 # Key used to cipher
 key = "whale"
 
+# Generates a Vigenère square
+vigenere_square = generate_vigenere_square()
+
 
 # This loop prints the Vigenere square in the terminal
 for x in vigenere_square:

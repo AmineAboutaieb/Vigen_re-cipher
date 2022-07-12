@@ -20,8 +20,6 @@ def generate_vigenere_square():
         vigenere_square.append(row_list)
     return vigenere_square
 
-vigenere_square = generate_vigenere_square()
-
 
 # This methods ciphers a string using a secret key and a Vigenère square
 def cipher(message, key, square):
