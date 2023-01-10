@@ -25,17 +25,19 @@ def generate_vigenere_square():
 def cipher(message, key, square):
     cipher = ""
     current_key_index = 0
-    joined_message = message.replace(' ', '')
 
-    for letter in joined_message:
-        if current_key_index == 0:
-            pass
-        elif current_key_index >= len(key):
-            current_key_index = 0
+    for letter in message:
+        if letter != ' ':
+            if current_key_index == 0:
+                pass
+            elif current_key_index >= len(key):
+                current_key_index = 0
 
-        cipher += square[alphabet.index(key[current_key_index])][alphabet.index(str.lower(letter))]
+            cipher += square[alphabet.index(key[current_key_index])][alphabet.index(str.lower(letter))]
 
-        current_key_index += 1
+            current_key_index += 1
+        else:
+            cipher += ' '
 
     return cipher
 
@@ -44,19 +46,22 @@ def cipher(message, key, square):
 def decipher(message, key, square):
     cipher = ""
     current_key_index = 0
-    joined_message = message.replace(' ', '')
 
-    for letter in joined_message:
-        if current_key_index == 0:
-            pass
-        elif current_key_index >= len(key):
-            current_key_index = 0
+    for letter in message:
+        if letter != ' ':
+            if current_key_index == 0:
+                pass
+            elif current_key_index >= len(key):
+                current_key_index = 0
 
-        row = square[alphabet.index(key[current_key_index])]
-        cipher_letter_index = row.index(letter)
+        
+            row = square[alphabet.index(key[current_key_index])]
+            cipher_letter_index = row.index(letter)
 
-        cipher += alphabet[cipher_letter_index]
+            cipher += alphabet[cipher_letter_index]
 
-        current_key_index += 1
+            current_key_index += 1
+        else:
+            cipher += ' '         
 
     return cipher
